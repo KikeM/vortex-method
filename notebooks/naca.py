@@ -202,9 +202,19 @@ class NacaGenerator():
         
         return x, y
     
-    def plot(self):
+    def plot(self, markers = None):
         """
         Plot airfoil.
+        """
+        plt.plot(self.upper_x, self.upper_y, marker = markers)
+        plt.plot(self.lower_x, self.lower_y, marker = markers)
+        
+        plt.axis('equal')
+        plt.title('NACA-' + self.naca)
+        
+    def plot_panels(self):
+        """
+        Plot airfoil with panels numbering. 
         """
         plt.plot(self.upper_x, self.upper_y)
         plt.plot(self.lower_x, self.lower_y)
