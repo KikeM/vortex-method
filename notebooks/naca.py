@@ -54,10 +54,10 @@ class NacaGenerator():
         
         # Error if those are exactly 0
         if self.p == 0:
-            self.p = 0.000001
+            self.p = 1e-12
 
         if self.m == 0:
-            self.m = 0.000001
+            self.m = 1e-12
         
         if as_dict == False:
             return self.t, self.m, self.p
@@ -73,7 +73,8 @@ class NacaGenerator():
         N: int
             Number of points
         """
-        x_linear = np.linspace(0, 1, N)
+        print(f'Generating cosine distribution with {N} points ...')
+        x_linear = np.linspace(0.0, 1.0, N)
         
         cos_dist = np.cos(pi * x_linear)
         cos_dist = 0.5 * (1.0 - cos_dist) 
@@ -91,7 +92,7 @@ class NacaGenerator():
         
         x = self.x
         
-        # y_t = (t / 0.2) * (0.2969 * x**0.5 + (-0.1260) * x + (-0.3516) * x**2.0 + 0.2843 * x**3.0 + (-0.1036) * x**4.0)
+        # y_t = (t / 0.2) * (0.2969 * x**0.5 + (-0.1260) * x + (-0.3516) * x**2.0 + 0.2843 * x**3.0 + (-0.1015) * x**4.0)
         y_t = (t / 0.2) * (0.2969 * x**0.5 + (-0.1260) * x + (-0.3516) * x**2.0 + 0.2843 * x**3.0 + (-0.1036) * x**4.0)
         
         self.y_t = y_t
