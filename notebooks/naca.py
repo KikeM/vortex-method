@@ -73,7 +73,6 @@ class NacaGenerator():
         N: int
             Number of points
         """
-        print(f'Generating cosine distribution with {N} points ...')
         x_linear = np.linspace(0.0, 1.0, N)
         
         cos_dist = np.cos(pi * x_linear)
